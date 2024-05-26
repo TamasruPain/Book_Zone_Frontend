@@ -75,7 +75,7 @@ const AddBooks_Cards = () => {
             </div>
 
             <div className="col-md-6">
-              <label className="form-label" htmlFor="typeYear">Publish Year:</label>
+              <label className="form-label" htmlFor="typeYear">Published Year:</label>
               <input type="text" id="typeYear" placeholder='' className="form-control"
                 onChange={(e) => setPublishYear(e.target.value)} />
             </div>

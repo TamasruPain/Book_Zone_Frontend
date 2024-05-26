@@ -132,7 +132,7 @@ const Books = () => {
               </div>
             </div>
           </div>
-          <div id="scrollspyTable" className="row row-cols-1 row-cols-md-4 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '500px', overflowY: 'scroll' }}>
+          <div id="scrollspyTable" className="row row-cols-1 row-cols-md-3 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '500px', overflowY: 'scroll' }}>
             {filteredBooks.map((book) => (
               <div className='col' key={book._id}>
                 <div className='card'>
@@ -145,7 +145,7 @@ const Books = () => {
                     </div>
                     <label></label>
                     <p className='card-text'><span><b>Author: </b></span>{book.auther}</p>
-                    <p><span><b>Publish Year: </b></span>{book.publishYear}</p>
+                    <p><span><b>Published Year: </b></span>{book.publishYear}</p>
                     <p><span><b>Edition: </b></span>{book.edition}</p>
                     <Link to={`/viewbookstd/${book._id}`} className='btn btn-outline-dark my-2'>Get the Book</Link>
                   </div>

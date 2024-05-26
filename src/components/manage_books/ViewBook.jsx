@@ -67,18 +67,22 @@ const ViewBook = () => {
 
   return (
     <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
-      <div className='form-container card p-2' style={{ height: '560px', width: 'auto' }}  >
-        <div align='right'>
-          <Link to='/all_books' className=' my-3 btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
-
+      <div className='form-container card p-2' style={{ height: '560px', width: '400px' }} >
+        <div className='row p-3'>
+          <div className='col-6' align='left'>
+            <h4>{book.bname}</h4>
+          </div>
+          <div className='col-6' align='right'>
+            <Link to='/books' className='btn btn-outline-dark my-3'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
+          </div>
         </div>
         <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">
           <table className="table table-bordered border-warning">
             <thead className='table-success'>
               <tr>
                 <th scope="col">Book Name</th>
-                <th scope="col">Book Author</th>
-                <th scope='col'>Book Publish Year </th>
+                <th scope="col"> Author</th>
+                <th scope='col'>Published Year </th>
               </tr>
             </thead>
             <tbody>
@@ -94,7 +98,7 @@ const ViewBook = () => {
             <thead className='table-success'>
               <tr>
 
-                <th scope="col">Book Edition</th>
+                <th scope="col">Edition</th>
                 <th scope='col'>Department</th>
                 <th scope='col'>Semester</th>
 
@@ -109,6 +113,7 @@ const ViewBook = () => {
               </tr>
             </tbody>
           </table>
+
         </div>
         <table className="table">
           <thead>

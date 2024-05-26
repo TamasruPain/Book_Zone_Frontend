@@ -89,7 +89,7 @@ const UpdateBooks_Card = () => {
             </div>
 
             <div className="col-md-6">
-              <label className="form-label" htmlFor="typeYear">Publish Year:</label>
+              <label className="form-label" htmlFor="typeYear">Published Year:</label>
               <input type="text" id="typeYear" placeholder='' className="form-control"
                 value={publishYear} onChange={(e) => setPublishYear(e.target.value)} />
             </div>

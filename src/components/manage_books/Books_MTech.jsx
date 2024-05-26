@@ -106,7 +106,7 @@ const Books_MTech = () => {
               </div>
             </div>
 
-            <div className="row row-cols-1 row-cols-md-4 g-4">
+            <div className="row row-cols-1 row-cols-md-3 g-4">
               {
                 filteredBooks.map((book) => {
                   return <div className="col" key={book._id}>
@@ -120,7 +120,7 @@ const Books_MTech = () => {
                         </div>
                         <label className='text-muted mb-2'></label>
                         <p className="card-text"><span><b>Author: </b></span>{book.auther}</p>
-                        <p><span><b>Publish Year: </b></span>{book.publishYear}</p>
+                        <p><span><b>Published Year: </b></span>{book.publishYear}</p>
                         <p><span><b>Edition: </b></span>{book.edition}</p>
                         <p><b>Department: </b>{book.department} & <b>Sem: </b>{book.semester}</p>
 
