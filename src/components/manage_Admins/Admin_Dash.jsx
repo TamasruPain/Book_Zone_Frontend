@@ -68,7 +68,7 @@ const Admin_Dash = () => {
 
       <div className='container'>
         <div className='my-5'>
-          <div className="row row-cols-1 row-cols-md-4 g-5 p-4">
+          <div className="row row-cols-1 row-cols-md-4 g-5 p-1" id="scrollspyBookTable" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '400px', overflowY: 'scroll' }} >
 
             <div className="col">
               <Link to="/all_books">
