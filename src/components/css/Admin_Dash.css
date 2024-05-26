@@ -1,0 +1,50 @@
+
+/* Admin_Dash.css */
+.card {
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* General styles (optional) */
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* Mobile view (up to 768px) */
+@media (max-width: 700px) {
+  .form-container {
+    height: 80px ;
+    width: 100%; /* Full width on mobile */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .title {
+    font-size: 1.5rem; /* Adjust font size for mobile */
+  }
+
+  .my-3,
+  .my-4 {
+    margin: 10px 0; /* Adjust spacing for mobile */
+  }
+
+  .btn {
+    font-size: 14px; /* Adjust button font size */
+  }
+
+  /* Adjust other styles as needed */
+}
+
+/* Tablet view (768px to 992px) (optional) */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* ... */
+}
+
+/* Desktop view (992px and above) */
+@media (min-width: 992px) {
+  /* ... */
+}
