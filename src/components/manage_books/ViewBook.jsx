@@ -73,7 +73,7 @@ const ViewBook = () => {
             <h4>{book.bname}</h4>
           </div>
           <div className='col-6' align='right'>
-            <Link to='/books' className='btn btn-outline-dark my-3'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
+            <Link to='/all_books' className='btn btn-outline-dark my-3'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
           </div>
         </div>
         <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">

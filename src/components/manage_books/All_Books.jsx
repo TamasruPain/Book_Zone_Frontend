@@ -98,7 +98,7 @@ const All_Books = () => {
               </div>
             </div>
 
-            <div id="scrollspyBookTable" className="row row-cols-1 row-cols-md-3 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '400px', overflowY: 'scroll' }}>
+            <div id="scrollspyBookTable" className="row row-cols-1 row-cols-md-3 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '380px', overflowY: 'scroll' }}>
               {filteredBooks.map((book) => (
                 <div className="col" key={book._id}>
                   <div className="card">

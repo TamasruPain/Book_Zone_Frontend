@@ -113,7 +113,7 @@ const Books_BCA = () => {
               </div>
             </div>
 
-            <div className="row row-cols-1 row-cols-md-3 g-4">
+            <div id="scrollspyBookTable" className="row row-cols-1 row-cols-md-3 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '380px', overflowY: 'scroll' }}>
               {
                 filteredBooks.map((book) => {
                   return <div className="col" key={book._id}>
