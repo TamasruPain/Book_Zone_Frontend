@@ -43,7 +43,7 @@ const ViewStudent = () => {
 
   return (
     <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
-      <div className='form-container card p-2' style={{ height: '540px', width: '440px' }} >
+      <div className='form-container card p-2' style={{ height: '580px', width: '440px' }} >
         <div className='row p-3'>
           <div className='col-6' align='left'>
             <h4>{student.Std_Name}</h4>
@@ -52,7 +52,7 @@ const ViewStudent = () => {
             <Link to='/all_students' className='btn btn-outline-primary my-3'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
           </div>
 
-          <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">
+          <div className="row g-1 my-1 overflow-x-auto">
             <table className="table table-hover table-bordered my-4">
               <thead>
                 <tr>
