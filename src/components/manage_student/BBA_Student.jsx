@@ -64,10 +64,10 @@ const BBA_Students = () => {
             <h2>Student Managment</h2>
             <hr className='rounded my-3' size="5" width="50%" color="red" />
           </div>
-          <div align='center' className='my-3'>
+          <div align='center'>
             <h5>All Registered BBA Students</h5>
 
-            <Link to='/all_students' className="btn btn-secondary mx-2">All Students</Link>
+            <Link to='/all_students' className="btn btn-secondary mx-2 my-2">All Students</Link>
             <Link to='/bca_students' className="btn btn-outline-secondary mx-2">BCA </Link>
             <Link to='/mca_students' className="btn btn-outline-secondary mx-2">MCA</Link>
             <Link to='/btech_students' className="btn btn-outline-secondary mx-2">B.Tech</Link>
