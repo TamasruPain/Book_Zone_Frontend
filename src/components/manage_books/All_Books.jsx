@@ -68,19 +68,19 @@ const All_Books = () => {
           <button onClick={handleDashboard} className='btn btn-dark btn-sm'>
             <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff", }} /> Dash Board
           </button>
-          <div align='center'>
+          <div className='my-2' align='center'>
             <h2>Manage Books</h2>
             <hr className='rounded' size="5" width="50%" color="red" />
           </div>
           <div align='center'>
             <h5>All Books</h5>
-            <Link to='/all_books' className="btn btn-warning mx-2">All Books</Link>
-            <Link to='/books_bca' className="btn btn-outline-secondary mx-2">BCA</Link>
-            <Link to='/books_mca' className="btn btn-outline-secondary mx-2">MCA</Link>
-            <Link to='/books_btech' className="btn btn-outline-secondary mx-2">B.Tech</Link>
-            <Link to='/books_mtech' className="btn btn-outline-secondary mx-2">M.Tech</Link>
-            <Link to='/books_bba' className="btn btn-outline-secondary mx-2">BBA</Link>
-            <Link to='/books_mba' className="btn btn-outline-secondary mx-2">MBA</Link>
+            <Link to='/all_books' className="btn btn-warning mx-2 my-1">All Books</Link>
+            <Link to='/books_bca' className="btn btn-outline-secondary mx-2 my-1">BCA</Link>
+            <Link to='/books_mca' className="btn btn-outline-secondary mx-2 y-1">MCA</Link>
+            <Link to='/books_btech' className="btn btn-outline-secondary mx-2 my-1">B.Tech</Link>
+            <Link to='/books_mtech' className="btn btn-outline-secondary mx-2 my-1">M.Tech</Link>
+            <Link to='/books_bba' className="btn btn-outline-secondary mx-2 my-1">BBA</Link>
+            <Link to='/books_mba' className="btn btn-outline-secondary mx-2 my-1">MBA</Link>
           </div>
           <div className='container'>
             <div className="row">

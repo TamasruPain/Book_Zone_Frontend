@@ -66,35 +66,50 @@ const ViewBook = () => {
   if (!book) return <p>Book not found</p>;
 
   return (
-    <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
-      <div className='bg-white p-4 rounded' style={{ height: 'auto', width: 'auto' }}>
+    <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+      <div className='form-container card p-2' style={{ height: '560px', width: 'auto' }}  >
         <div align='right'>
-          <Link to='/all_books' className='btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
+          <Link to='/all_books' className=' my-3 btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
 
         </div>
-        <table className="table table-bordered border-warning my-3">
-          <thead className='table-success'>
-            <tr>
-              <th scope="col">Book Name</th>
-              <th scope="col">Book Author</th>
-              <th scope='col'>Book Publish Year </th>
-              <th scope="col">Book Edition</th>
-              <th scope='col'>Department</th>
-              <th scope='col'>Semester</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{book.bname}</td>
-              <td>{book.auther}</td>
-              <td>{book.publishYear}</td>
-              <td>{book.edition}</td>
-              <td>{book.department}</td>
-              <td>{book.semester}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">
+          <table className="table table-bordered border-warning">
+            <thead className='table-success'>
+              <tr>
+                <th scope="col">Book Name</th>
+                <th scope="col">Book Author</th>
+                <th scope='col'>Book Publish Year </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{book.bname}</td>
+                <td>{book.auther}</td>
+                <td>{book.publishYear}</td>
+              </tr>
+            </tbody>
+          </table>
 
+          <table className="table table-bordered border-warning">
+            <thead className='table-success'>
+              <tr>
+
+                <th scope="col">Book Edition</th>
+                <th scope='col'>Department</th>
+                <th scope='col'>Semester</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+
+                <td>{book.edition}</td>
+                <td>{book.department}</td>
+                <td>{book.semester}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <table className="table">
           <thead>
             <tr>
@@ -110,7 +125,7 @@ const ViewBook = () => {
           </tbody>
         </table>
 
-        <div className='my-2'>
+        <div className='my-4'>
           <Link to={`/updatebookscard/${book._id}`} className='btn btn-outline-info'>Update</Link>
           <button type='button' className='btn btn-outline-danger mx-2'
             onClick={(e) => handleDelete(book._id)}>Delete</button>
