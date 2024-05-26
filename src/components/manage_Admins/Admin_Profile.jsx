@@ -20,7 +20,7 @@ const OwnerAdmin_Profile = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/owner/me', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/owner/me', {
           headers: { Authorization: token }
         });
         setOwnerAdmin(response.data);
@@ -42,7 +42,7 @@ const OwnerAdmin_Profile = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -61,7 +61,7 @@ const OwnerAdmin_Profile = () => {
   }, []);
 
   const handleLogout = () => {
-    axios.get('http://localhost:7777/owner/logout')
+    axios.get('https://book-zone-mern-app.onrender.com/owner/logout')
       .then(res => {
         if (res.data.json) {
           localStorage.removeItem('token');
@@ -79,7 +79,7 @@ const OwnerAdmin_Profile = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account?");
     if (confirmDelete) {
       const token = localStorage.getItem('token');
-      axios.delete(`http://localhost:7777/owner/deleteOwnerAdmin/${ownerAdmin._id}`, {
+      axios.delete(`https://book-zone-mern-app.onrender.com/owner/deleteOwnerAdmin/${ownerAdmin._id}`, {
         headers: { Authorization: token }
       })
         .then(res => {
@@ -108,7 +108,7 @@ const OwnerAdmin_Profile = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    axios.put(`http://localhost:7777/owner/updateOwnerAdmin/${ownerAdmin._id}`, formData, {
+    axios.put(`https://book-zone-mern-app.onrender.com/owner/updateOwnerAdmin/${ownerAdmin._id}`, formData, {
       headers: { Authorization: token }
     })
       .then(res => {

@@ -11,7 +11,7 @@ const MBA_Students = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get("http://localhost:7777/student/mba_students")
+    axios.get("https://book-zone-mern-app.onrender.com/student/mba_students")
       .then(result => setMBAStudents(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -22,7 +22,7 @@ const MBA_Students = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/student/deleteStudent/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/student/deleteStudent/${id}`)
         .then(res => {
           console.log(res);
           // Use navigate to go back to the previous page
@@ -89,7 +89,7 @@ const MBA_Students = () => {
               </div>
             </div>
 
-            <div className="row row-cols-1 row-cols-md-4 g-4">
+            <div id="scrollspyTable" className="row row-cols-1 row-cols-md-4 g-4 my-2" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '400px', overflowY: 'scroll' }}>
               <table className="table table-hover table-bordered">
                 <thead className='table-success'>
                   <tr>

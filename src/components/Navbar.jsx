@@ -14,7 +14,7 @@ const Navbar = () => {
         const checkRole = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.get('http://localhost:7777/role/checkRole', {
+                const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
                     headers: { Authorization: token }
                 });
                 setRole(response.data.role);
@@ -31,7 +31,7 @@ const Navbar = () => {
     }, [navigate, location.pathname]);
 
     const handleLogout = () => {
-        axios.get('http://localhost:7777/logout')
+        axios.get('https://book-zone-mern-app.onrender.com/logout')
             .then(res => {
                 if (res.data.json) {
                     localStorage.removeItem('token');
@@ -51,12 +51,6 @@ const Navbar = () => {
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
                         <div>
-                            <img
-                                src="src/images/logo.jpg"
-                                className="img-fluid"
-                                alt="logo"
-                                style={{ height: '20px', marginTop: '-3px', overflow: 'hidden' }}
-                            />
                             Book Zone
                         </div>
                     </Link>

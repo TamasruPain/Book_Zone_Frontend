@@ -27,7 +27,7 @@ const SignUp_Student = () => {
     setLoading(true);
     setErrorMessage('');
     try {
-      const response = await axios.post('http://localhost:7777/student/studentsignup/', {
+      const response = await axios.post('https://book-zone-mern-app.onrender.com/student/studentsignup/', {
         Std_Name,
         Std_Id,
         Std_DOB,
@@ -76,7 +76,7 @@ const SignUp_Student = () => {
             />
           </div>
           <div className='col-md-6'>
-            <label className='form-label'>Email</label>
+            <label className='form-label'>Email Id</label>
             <input
               type='email'
               className='form-control'
@@ -116,7 +116,7 @@ const SignUp_Student = () => {
             />
           </div>
           <div className='col-md-7'>
-            <label className='form-label'>Institute</label>
+            <label className='form-label'>Institution</label>
             <input
               type='text'
               className='form-control'

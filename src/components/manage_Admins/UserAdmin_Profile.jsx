@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faTrashCan, faPenToSquare, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 const UserAdmin_Profile = () => {
-  
+
   const navigate = useNavigate();
 
   const [userAdmin, setUserAdmin] = useState(null);
@@ -21,7 +21,7 @@ const UserAdmin_Profile = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -42,7 +42,7 @@ const UserAdmin_Profile = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/user/me', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/user/me', {
           headers: { Authorization: token }
         });
         setUserAdmin(response.data);
@@ -61,7 +61,7 @@ const UserAdmin_Profile = () => {
   }, []);
 
   const handleLogout = () => {
-    axios.get('http://localhost:7777/user/logout')
+    axios.get('https://book-zone-mern-app.onrender.com/user/logout')
       .then(res => {
         if (res.data.json) {
           localStorage.removeItem('token');
@@ -79,7 +79,7 @@ const UserAdmin_Profile = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account?");
     if (confirmDelete) {
       const token = localStorage.getItem('token');
-      axios.delete(`http://localhost:7777/user/deleteUserAdmin/${userAdmin._id}`, {
+      axios.delete(`https://book-zone-mern-app.onrender.com/user/deleteUserAdmin/${userAdmin._id}`, {
         headers: { Authorization: token }
       })
         .then(res => {
@@ -106,7 +106,7 @@ const UserAdmin_Profile = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    axios.put(`http://localhost:7777/user/updateUserAdmin/${userAdmin._id}`, formData, {
+    axios.put(`https://book-zone-mern-app.onrender.com/user/updateUserAdmin/${userAdmin._id}`, formData, {
       headers: { Authorization: token }
     })
       .then(res => {

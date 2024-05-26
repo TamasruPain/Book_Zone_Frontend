@@ -18,7 +18,7 @@ const Register_UserAdmin = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -44,7 +44,7 @@ const Register_UserAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:7777/user/adduseradmin", useradminData);
+      await axios.post("https://book-zone-mern-app.onrender.com/user/adduseradmin", useradminData);
       navigate(-1); // Navigate back to the previous page
     } catch (error) {
       console.log(error);
@@ -53,9 +53,8 @@ const Register_UserAdmin = () => {
 
   return (
     <div>
-      <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
-        <div className='bg-white p-4 rounded w-50'>
-
+       <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+            <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
           <div align='right'>
             <Link to='/useradmins' className='btn btn-success'>Go Back</Link>
           </div>

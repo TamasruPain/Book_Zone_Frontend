@@ -16,7 +16,7 @@ const OwnerAdmins = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const OwnerAdmins = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:7777/owner/ownerAdmins")
+    axios.get("https://book-zone-mern-app.onrender.com/owner/ownerAdmins")
       .then(result => setOwnerAdmins(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -96,8 +96,6 @@ const OwnerAdmins = () => {
                     <th scope="col">Admin Name</th>
                     <th scope='col'>Email Address</th>
                     <th scope='col'>Gender</th>
-                    <th scope='col'>Actions</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -107,9 +105,6 @@ const OwnerAdmins = () => {
                       <td>{admin.ownerAdminName}</td>
                       <td>{admin.ownerAdminEmail}</td>
                       <td>{admin.ownerAdminGender}</td>
-                      <td>
-                        <Link to={`/updateowneradmin/${admin._id}`} className='btn btn-outline-info mx-2 my-2'>Update</Link>
-                      </td>
                     </tr>
                   ))}
                 </tbody>

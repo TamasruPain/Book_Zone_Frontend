@@ -10,7 +10,7 @@ const Student_Dash = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    axios.get('http://localhost:7777/student/logout')
+    axios.get('https://book-zone-mern-app.onrender.com/student/logout')
       .then(res => {
         if (res.data.json) {
           localStorage.removeItem('token');
@@ -38,7 +38,7 @@ const Student_Dash = () => {
         <hr className='rounded my-2' size="5" width="50%" color="red" />
       </div>
       <div align='center'>
-        <h5>Lets do some Study</h5>
+        <h5>Let's do some Study</h5>
       </div>
 
       <div className='container'>
@@ -72,7 +72,7 @@ const Student_Dash = () => {
                 <div className="card">
                   <div className="card-body">
                     <FontAwesomeIcon icon={faClipboardQuestion} style={{ fontSize: '48px' }} />
-                    <label className="card-title mx-3 my-3">Make<br />Queary</label>
+                    <label className="card-title mx-3 my-3">Make<br />Query</label>
                   </div>
                 </div>
               </Link>

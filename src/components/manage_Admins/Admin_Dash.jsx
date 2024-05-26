@@ -13,7 +13,7 @@ const Admin_Dash = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -32,7 +32,7 @@ const Admin_Dash = () => {
   }, []);
 
   const handleLogout = () => {
-    axios.get('http://localhost:7777/owner/logout')
+    axios.get('https://book-zone-mern-app.onrender.com/owner/logout')
       .then(res => {
         if (res.data.json) {
           localStorage.removeItem('token');

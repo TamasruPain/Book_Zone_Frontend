@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesLeft} from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 const UpdateStudent = () => {
@@ -20,7 +20,7 @@ const UpdateStudent = () => {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:7777/student/getStudent/" + id)
+    axios.get("https://book-zone-mern-app.onrender.com/student/getStudent/" + id)
       .then(result => {
         console.log(result)
         const data = result.data;
@@ -29,7 +29,7 @@ const UpdateStudent = () => {
           Std_Name: data.Std_Name || '',
           Std_Id: data.Std_Id || '',
           Std_DOB: data.Std_DOB || '',
-          Std_Gender: data.Std_Gender ||'',
+          Std_Gender: data.Std_Gender || '',
           Std_Email: data.Std_Email || '',
           Std_Department: data.Std_Department || '',
           Std_Semester: data.Std_Semester || '',
@@ -47,7 +47,7 @@ const UpdateStudent = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:7777/student/updateStudent/${id}`, studentData)
+    axios.put(`https://book-zone-mern-app.onrender.com/student/updateStudent/${id}`, studentData)
       .then(result => {
         console.log(result)
         navigate(-1);
@@ -57,8 +57,8 @@ const UpdateStudent = () => {
 
   return (
     <div>
-      <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
-        <div className='bg-white p-4 rounded w-50'>
+      <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+        <div className='form-container card p-4' style={{ height: '560px', width: '600px' }}  >
           <div align='right'>
             <Link to='/all_students' className='btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
 

@@ -10,12 +10,12 @@ const Books = () => {
   const [departmentFilter, setDepartmentFilter] = useState('');
   const [semesterFilter, setSemesterFilter] = useState('');
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const Books = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:7777/book/allbooks')
+    axios.get('https://book-zone-mern-app.onrender.com/book/allbooks')
       .then(result => setBooks(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -79,15 +79,15 @@ const Books = () => {
   return (
 
     <div className='justify-content-center align-items-center'>
-      <div className='rounded p-5'>
+      <div className='rounded p-3'>
         <div>
           <button onClick={handleDashboard} className='btn btn-dark btn-sm'> <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff", }} /> Dash Board</button>
         </div>
         <div align='center'>
           <h2> Books Zone </h2>
-          <hr className='rounded my-3' size="5" width="50%" color="red" />
+          <hr className='rounded' size="5" width="50%" color="red" />
         </div>
-        <div align='center' className='my-3'>
+        <div align='center'>
           <h5>All the books you need</h5>
         </div>
 
@@ -104,7 +104,7 @@ const Books = () => {
             </div>
             <div className="col-md-4 offset-md-4" align='right'>
               <div className="dropdown">
-                <button className="btn btn-outline-dark dropdown-toggle my-2 mx-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button className="btn btn-outline-dark dropdown-toggle my-1 mx-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   {departmentFilter ? departmentFilter : 'Department'}
                 </button>
                 <ul className="dropdown-menu dropdown-menu-dark">
@@ -132,7 +132,7 @@ const Books = () => {
               </div>
             </div>
           </div>
-          <div className='row row-cols-1 row-cols-md-4 my-3 g-4'>
+          <div id="scrollspyTable" className="row row-cols-1 row-cols-md-4 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '400px', overflowY: 'scroll' }}>
             {filteredBooks.map((book) => (
               <div className='col' key={book._id}>
                 <div className='card'>

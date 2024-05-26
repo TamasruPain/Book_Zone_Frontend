@@ -15,7 +15,7 @@ const UserAdmins = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -34,7 +34,7 @@ const UserAdmins = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:7777/user/userAdmins")
+    axios.get("https://book-zone-mern-app.onrender.com/user/userAdmins")
       .then(result => setUserAdmins(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -43,7 +43,7 @@ const UserAdmins = () => {
   const handleDelete = (id) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this student?");
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/user/deleteUserAdmin/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/user/deleteUserAdmin/${id}`)
         .then(res => {
           console.log(res);
           setUserAdmins(userAdmins.filter(admin => admin._id !== id));
@@ -69,7 +69,7 @@ const UserAdmins = () => {
     <div>
       <div className='justify-content-center align-items-center'>
         <div className='rounded p-3'>
-          
+
           <div>
             <button onClick={handleDashboard} className='btn btn-dark btn-sm'>
               <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff", }} /> Dash Board

@@ -15,7 +15,7 @@ const Books_BTech = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const Books_BTech = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:7777/book/btech_books")
+    axios.get("https://book-zone-mern-app.onrender.com/book/btech_books")
       .then(result => setBtechBooks(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -46,7 +46,7 @@ const Books_BTech = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/book/deletebook/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/book/deletebook/${id}`)
         .then(res => {
           console.log(res);
           // Use navigate to go back to the previous page
@@ -123,7 +123,7 @@ const Books_BTech = () => {
                           )}
                         </div>
                         <label className='text-muted mb-2'></label>
-                        <p className="card-text"><span><b>Auther: </b></span>{book.auther}</p>
+                        <p className="card-text"><span><b>Author: </b></span>{book.auther}</p>
                         <p><span><b>Publish Year: </b></span>{book.publishYear}</p>
                         <p><span><b>Edition: </b></span>{book.edition}</p>
                         <p><b>Department: </b>{book.department} & <b>Sem: </b>{book.semester}</p>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesLeft} from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 const MakeQuery = () => {
   const [query, setQuery] = useState({ name: '', email: '', subject: '', text: '' });
@@ -12,7 +12,7 @@ const MakeQuery = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -40,7 +40,7 @@ const MakeQuery = () => {
     e.preventDefault();
     console.log('Submitting query:', query); // Log the query object
     try {
-      const response = await axios.post('http://localhost:7777/query/makeQuery', query);
+      const response = await axios.post('https://book-zone-mern-app.onrender.com/query/makeQuery', query);
       console.log('Response:', response); // Log the response
       alert('Query submitted successfully');
       navigate(-1); // Navigating back after submission
@@ -53,8 +53,8 @@ const MakeQuery = () => {
 
   return (
     <div>
-      <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
-        <div className='bg-white p-4 rounded w-50'>
+      <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+        <div className='form-container card p-4' style={{ height: '580px', width: '400px' }}  >
 
           <div align='right'>
             <Link to='/student_dash' className='btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
@@ -72,7 +72,7 @@ const MakeQuery = () => {
 
             <div className="col-md-6">
               <label htmlFor="inputEmail" className="form-label"><b>Email</b></label>
-              <input type="email" placeholder='Enter the 10 digit Id' className="form-control" id="inputEmail"
+              <input type="email" placeholder='Enter your emali' className="form-control" id="inputEmail"
                 name="email" value={query.email} onChange={handleChange} /> {/* Changed name to "email" */}
             </div>
 

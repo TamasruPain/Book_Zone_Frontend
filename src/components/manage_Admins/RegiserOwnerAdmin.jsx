@@ -12,12 +12,12 @@ const RegisterOwnerAdmin = () => {
 
   const navigate = useNavigate();
 
-  
+
   useEffect(() => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -44,7 +44,7 @@ const RegisterOwnerAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:7777/owner/addowneradmin", ownerAdminData);
+      await axios.post("https://book-zone-mern-app.onrender.com/owner/addowneradmin", ownerAdminData);
       navigate(-1); // Navigate back to the previous page
     } catch (error) {
       console.log(error);
@@ -53,8 +53,8 @@ const RegisterOwnerAdmin = () => {
 
   return (
     <div>
-      <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
-        <div className='bg-white p-4 rounded w-50'>
+        <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+            <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
 
           <div align='right'>
             <Link to='/owneradmins' className='btn btn-success'>Go Back</Link>
@@ -66,7 +66,7 @@ const RegisterOwnerAdmin = () => {
             <div className="col-6">
               <label className="form-label" htmlFor="ownerAdminName"><b>Owner Admin Name</b></label>
               <input type="text" placeholder='Enter Full Name' id="ownerAdminName" className="form-control"
-                name="ownerAdminName" value={ownerAdminData.ownerAdminName} onChange={handleChange} required/>
+                name="ownerAdminName" value={ownerAdminData.ownerAdminName} onChange={handleChange} required />
             </div>
 
             <div className="col-6">

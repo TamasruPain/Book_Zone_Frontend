@@ -12,7 +12,7 @@ const AddStudent = () => {
     Std_Semester: '',
     Std_AdmissionYear: '',
     Std_Institute: '',
-    Std_Gender:'',
+    Std_Gender: '',
   });
 
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const AddStudent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:7777/student/addStudents", studentData);
+      await axios.post("https://book-zone-mern-app.onrender.com/student/addStudents", studentData);
       navigate(-1);
     } catch (error) {
       console.log(error);
@@ -34,9 +34,8 @@ const AddStudent = () => {
 
   return (
     <div>
-      <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
-        <div className='bg-white p-4 rounded w-50'>
-
+      <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+        <div className='form-container card p-4' style={{ height: '600px', width: '600px' }}  >
           <div align='right'>
             <Link to='/all_students' className='btn btn-success'>Go Back</Link>
           </div>
@@ -53,31 +52,31 @@ const AddStudent = () => {
             <div className="col-md-6">
               <label htmlFor="inputNumber" className="form-label"><b>Student Id</b></label>
               <input type="text" placeholder='Enter the 10 digit Id' className="form-control" id="inputNumber"
-                name="Std_Id" value={studentData.Std_Id} onChange={handleChange} required/>
+                name="Std_Id" value={studentData.Std_Id} onChange={handleChange} required />
             </div>
 
             <div className="col-md-4">
               <label className="form-label" htmlFor="typeYear"><b>Date of Birth</b></label>
               <input type="text" id="typeYear" placeholder='DDMMYYYY' className="form-control"
-                name="Std_DOB" value={studentData.Std_DOB} onChange={handleChange}  required/>
+                name="Std_DOB" value={studentData.Std_DOB} onChange={handleChange} required />
             </div>
 
             <div className="col-md-8">
               <label className="form-label" htmlFor="typeEmail"><b>Email Address</b></label>
               <input type="Email" placeholder='Email Address of the Student' id="typeEmail" className="form-control"
-                name="Std_Email" value={studentData.Std_Email} onChange={handleChange}  required/>
+                name="Std_Email" value={studentData.Std_Email} onChange={handleChange} required />
             </div>
 
             <div className="col-md-4">
               <label className="form-label" htmlFor="typeGender"><b>Gender</b></label>
               <input type="text" id="typeGender" placeholder='Student Gender' className="form-control"
-                name="Std_Gender" value={studentData.Std_Gender} onChange={handleChange} required/>
+                name="Std_Gender" value={studentData.Std_Gender} onChange={handleChange} required />
             </div>
 
             <div className="col-md-8">
               <label className="form-label" htmlFor="typeInstitute"><b>Institute</b></label>
               <input type="text" id="typeInstitute" placeholder='Enter your institute' className="form-control"
-                name="Std_Institute" value={studentData.Std_Institute} onChange={handleChange} required/>
+                name="Std_Institute" value={studentData.Std_Institute} onChange={handleChange} required />
             </div>
 
             <div className="col-md-4">
@@ -86,7 +85,7 @@ const AddStudent = () => {
                 name="Std_AdmissionYear" value={studentData.Std_AdmissionYear} onChange={handleChange} required />
             </div>
 
-           
+
 
             <div className="col-md-4">
               <label className="form-label" htmlFor="typeDepartment"><b>Department</b></label>

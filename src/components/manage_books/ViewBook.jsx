@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesLeft} from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 const ViewBook = () => {
@@ -15,7 +15,7 @@ const ViewBook = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const ViewBook = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:7777/book/book/${id}`)
+    axios.get(`https://book-zone-mern-app.onrender.com/book/book/${id}`)
       .then(response => {
         setBook(response.data);
         setLoading(false);
@@ -51,7 +51,7 @@ const ViewBook = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/book/deletebook/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/book/deletebook/${id}`)
         .then(res => {
           console.log(res);
           // Reload the page to reflect the deletion
@@ -76,12 +76,11 @@ const ViewBook = () => {
           <thead className='table-success'>
             <tr>
               <th scope="col">Book Name</th>
-              <th scope="col">Book Auther</th>
+              <th scope="col">Book Author</th>
               <th scope='col'>Book Publish Year </th>
               <th scope="col">Book Edition</th>
               <th scope='col'>Department</th>
               <th scope='col'>Semester</th>
-
             </tr>
           </thead>
           <tbody>

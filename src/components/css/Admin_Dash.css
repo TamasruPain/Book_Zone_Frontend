@@ -1,15 +1,14 @@
-
-/* Admin_Dash.css */
+/* General card styling */
 .card {
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* General styles (optional) */
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form container styling */
 .form-container {
   width: 50%;
   margin: 0 auto;
@@ -18,7 +17,6 @@
 /* Mobile view (up to 768px) */
 @media (max-width: 700px) {
   .form-container {
-    height: 80px ;
     width: 100%; /* Full width on mobile */
     padding: 20px; /* Adjust padding for smaller screens */
   }
@@ -35,16 +33,29 @@
   .btn {
     font-size: 14px; /* Adjust button font size */
   }
-
-  /* Adjust other styles as needed */
 }
 
-/* Tablet view (768px to 992px) (optional) */
-@media (min-width: 768px) and (max-width: 992px) {
-  /* ... */
+/* Ensure body and html elements can scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: auto; /* Allow vertical scroll */
+}
+
+/* Ensure the main container can scroll */
+.main-container {
+  min-height: 100vh; /* Ensure the container spans full viewport height */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Additional styles to ensure proper rendering */
+.container {
+  padding-bottom: 20px; /* Ensure there's space at the bottom */
 }
 
 /* Desktop view (992px and above) */
 @media (min-width: 992px) {
-  /* ... */
+  /* Additional styles if needed */
 }

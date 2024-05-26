@@ -9,32 +9,28 @@ const All_Books = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
-        // Check if the role is either "userAdmin" or "ownerAdmin"
         if (response.data.role !== 'User Admin' && response.data.role !== 'Owner Admin') {
-          alert('Login to gain Access!')
+          alert('Login to gain Access!');
           navigate('/');
         }
       } catch (error) {
-        // Handle error or redirect to login page
         navigate('/');
       }
     };
 
     checkRole();
-  }, []);
-
+  }, [navigate]);
 
   useEffect(() => {
-    axios.get("http://localhost:7777/book/allbooks")
+    axios.get("https://book-zone-mern-app.onrender.com/book/allbooks")
       .then(result => setBooks(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -42,23 +38,20 @@ const All_Books = () => {
   const handleDelete = (id) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this book?");
 
-    // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/book/deletebook/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/book/deletebook/${id}`)
         .then(res => {
           console.log(res);
-          // Reload the page to reflect the deletion
-          window.location.reload();
+          setBooks(prevBooks => prevBooks.filter(book => book._id !== id));
         })
         .catch(err => console.log(err));
     }
   };
 
-  // Filter books based on search term
   const filteredBooks = books.filter(book =>
     book.bname.toLowerCase().includes(searchTerm.toLowerCase())
   );
-//handles the Role base Dashboard Navigation 
+
   const handleDashboard = () => {
     const role = localStorage.getItem('role');
     if (role === 'ownerAdmin') {
@@ -69,19 +62,18 @@ const All_Books = () => {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <div className='justify-content-center align-items-center'>
-        <div className='rounded p-3'>
+        <div className='rounded p-2'>
           <button onClick={handleDashboard} className='btn btn-dark btn-sm'>
             <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff", }} /> Dash Board
           </button>
           <div align='center'>
-            <h2>Manage Books </h2>
-            <hr className='rounded my-3' size="5" width="50%" color="red" />
+            <h2>Manage Books</h2>
+            <hr className='rounded' size="5" width="50%" color="red" />
           </div>
-          <div align='center' className='my-3'>
+          <div align='center'>
             <h5>All Books</h5>
-
             <Link to='/all_books' className="btn btn-warning mx-2">All Books</Link>
             <Link to='/books_bca' className="btn btn-outline-secondary mx-2">BCA</Link>
             <Link to='/books_mca' className="btn btn-outline-secondary mx-2">MCA</Link>
@@ -92,21 +84,21 @@ const All_Books = () => {
           </div>
           <div className='container'>
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-3">
                 <input
                   type="text"
                   placeholder="Search books by name"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="form-control my-3"
+                  className="form-control my-2"
                 />
               </div>
-              <div className="col-md-4 offset-md-4" align='right'>
-                <Link to='/addbookscard' className='btn btn-outline-success float-right my-3'><b>Add books +</b></Link>
+              <div className="col-md-4 offset-md-5" align='right'>
+                <Link to='/addbookscard' className='btn btn-outline-success float-right my-2'><b>Add books +</b></Link>
               </div>
             </div>
 
-            <div className="row row-cols-1 row-cols-md-4 g-4">
+            <div id="scrollspyBookTable" className="row row-cols-1 row-cols-md-4 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '400px', overflowY: 'scroll' }}>
               {filteredBooks.map((book) => (
                 <div className="col" key={book._id}>
                   <div className="card">
@@ -118,7 +110,7 @@ const All_Books = () => {
                         )}
                       </div>
                       <label className='text-muted mb-2'></label>
-                      <p className="card-text"><span><b>Auther: </b></span>{book.auther}</p>
+                      <p className="card-text"><span><b>Author: </b></span>{book.auther}</p>
                       <p><span><b>Publish Year: </b></span>{book.publishYear}</p>
                       <p><span><b>Edition: </b></span>{book.edition}</p>
                       <p><b>Department: </b>{book.department} & <b>Sem: </b>{book.semester}</p>
@@ -132,6 +124,7 @@ const All_Books = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </div>

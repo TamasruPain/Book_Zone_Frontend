@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesLeft} from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 const ViewBook = () => {
   const { id } = useParams();
@@ -14,7 +14,7 @@ const ViewBook = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -34,7 +34,7 @@ const ViewBook = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:7777/book/book/${id}`)
+    axios.get(`https://book-zone-mern-app.onrender.com/book/book/${id}`)
       .then(response => {
         setBook(response.data);
         setLoading(false);
@@ -73,7 +73,7 @@ const ViewBook = () => {
           <thead className='table-success'>
             <tr>
               <th scope="col">Book Name</th>
-              <th scope="col">Book Auther</th>
+              <th scope="col">Book Author</th>
               <th scope='col'>Book Publish Year </th>
               <th scope="col">Book Edition</th>
               <th scope='col'>Department</th>
@@ -112,7 +112,7 @@ const ViewBook = () => {
           <Link className='btn btn-outline-dark' onClick={openLink}>
             Open Link
           </Link>
-       <label className='mx-2'><b>Or</b></label>
+          <label className='mx-2'><b>Or</b></label>
           <Link className='btn btn-outline-dark' onClick={copyLink}>
             Copy Link
           </Link>

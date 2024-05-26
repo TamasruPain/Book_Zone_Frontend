@@ -20,7 +20,7 @@ const AddBooks_Cards = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -42,7 +42,7 @@ const AddBooks_Cards = () => {
 
   const Submit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:7777/book/addbookscard", { bname, auther, publishYear, edition, department, semester, blink })
+    axios.post("https://book-zone-mern-app.onrender.com/book/addbookscard", { bname, auther, publishYear, edition, department, semester, blink })
       .then(result => {
         console.log(result)
         navigate('/all_books')
@@ -52,16 +52,15 @@ const AddBooks_Cards = () => {
 
   return (
     <div>
-      <div className=' d-flex justify-content-center align-items-center bg-secondary vh-100' >
-        <div className='bg-white p-4 rounded w-50'>
-
+      <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+        <div className='form-container card p-2' style={{ height: '600px', width: '600px' }}  >
           <div align='right'>
             <Link to='/all_books' className='btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
 
           </div>
           <h2 className='container d-flex justify-content-center align-items-center'>Add Books</h2>
 
-          <form className="row g-4 p-3 my-2" onSubmit={Submit}>
+          <form className="row g-4 p-2 my-2" onSubmit={Submit}>
 
             <div className="col-6">
               <label className="form-label" htmlFor="typeText">Book Name</label>
@@ -70,8 +69,8 @@ const AddBooks_Cards = () => {
             </div>
 
             <div className="col-md-6">
-              <label htmlFor="inputAuther" className="form-label">Auther</label>
-              <input type="text" placeholder='' className="form-control" id="inputAuther"
+              <label htmlFor="inputAuthor" className="form-label">Author</label>
+              <input type="text" placeholder='' className="form-control" id="inputAuthor"
                 onChange={(e) => setAuther(e.target.value)} />
             </div>
 

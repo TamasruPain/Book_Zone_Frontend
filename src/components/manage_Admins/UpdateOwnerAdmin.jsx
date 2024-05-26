@@ -13,12 +13,12 @@ const UpdateOwnerAdmin = () => {
     ownerAdminGender: '',
   });
 
- 
+
   useEffect(() => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -37,7 +37,7 @@ const UpdateOwnerAdmin = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:7777/owner/ownerAdmin/${id}`)
+    axios.get(`https://book-zone-mern-app.onrender.com/owner/ownerAdmin/${id}`)
       .then(result => {
         console.log(result);
         const data = result.data;
@@ -58,7 +58,7 @@ const UpdateOwnerAdmin = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:7777/owner/updateOwnerAdmin/${id}`, adminData)
+    axios.put(`https://book-zone-mern-app.onrender.com/owner/updateOwnerAdmin/${id}`, adminData)
       .then(result => {
         console.log(result);
         navigate(-1);

@@ -15,7 +15,7 @@ const ViewQuery = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const ViewQuery = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:7777/query/queries/${id}`)
+    axios.get(`https://book-zone-mern-app.onrender.com/query/queries/${id}`)
       .then(response => {
         setQuery(response.data);
         setLoading(false);
@@ -52,7 +52,7 @@ const ViewQuery = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/query/deleteQuery/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/query/deleteQuery/${id}`)
         .then(res => {
           console.log(res);
           navigate('/manage_query'); // Redirect after deletion

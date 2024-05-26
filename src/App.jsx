@@ -58,8 +58,10 @@ import Manage_Query from "./components/manage_query/Manage_Query"
 import MakeQuery from "./components/manage_query/MakeQuery"
 import ViewQuery from "./components/manage_query/ViewQuery"
 
-
 import './components/css/Admin_Dash.css';
+
+
+
 
 function App() {
 

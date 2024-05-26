@@ -19,7 +19,7 @@ const SignUp_OwnerAdmin = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:7777/owner/owneradminsignup', {
+      const response = await axios.post('https://book-zone-mern-app.onrender.com/owner/owneradminsignup', {
         ownerAdminName,
         ownerAdminEmail,
         ownerAdminGender,

@@ -15,7 +15,7 @@ const Login_OwnerAdmin = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:7777/owner/owneradminlogin', {
+      const response = await axios.post('https://book-zone-mern-app.onrender.com/owner/owneradminlogin', {
         ownerAdminEmail,
         ownerAdminPassword,
       });
@@ -39,8 +39,8 @@ const Login_OwnerAdmin = () => {
   };
 
   return (
-    <div className='d-flex justify-content-center align-items-center' style={{height:'600px'}} >
-      <div className='form-container card p-4' style={{ height: '500px', width:'400px' }}  >
+    <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+      <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
         <div className="" align={'right'}>
           <Link to="/" className='btn btn-outline-success'><FontAwesomeIcon icon={faArrowLeft} /> Back</Link>
         </div>
@@ -88,7 +88,7 @@ const Login_OwnerAdmin = () => {
           <p>Don't have an account? <Link to='/owneradminregister'>Register!</Link></p>
         </div> */}
       </div>
-      
+
     </div>
   );
 };

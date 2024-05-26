@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesLeft} from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 const ViewStudent = () => {
   const { id } = useParams();
@@ -11,7 +11,7 @@ const ViewStudent = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:7777/student/student/${id}`)
+    axios.get(`https://book-zone-mern-app.onrender.com/student/student/${id}`)
       .then(response => {
         setStudent(response.data);
         setLoading(false);
@@ -28,7 +28,7 @@ const ViewStudent = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/student/deleteStudent/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/student/deleteStudent/${id}`)
         .then(res => {
           console.log(res);
           // Redirect to all students page or any other desired page

@@ -23,7 +23,7 @@ const Student_Profile = () => {
         const fetchData = async () => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.get('http://localhost:7777/student/me', {
+                const response = await axios.get('https://book-zone-mern-app.onrender.com/student/me', {
                     headers: { Authorization: token }
                 });
                 setStudent(response.data);
@@ -49,7 +49,7 @@ const Student_Profile = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        axios.get('http://localhost:7777/student/logout')
+        axios.get('https://book-zone-mern-app.onrender.com/student/logout')
             .then(res => {
                 if (res.data.json) {
                     localStorage.removeItem('token');
@@ -67,7 +67,7 @@ const Student_Profile = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete your account?");
         if (confirmDelete) {
             const token = localStorage.getItem('token');
-            axios.delete(`http://localhost:7777/student/deleteStudent/${student._id}`, {
+            axios.delete(`https://book-zone-mern-app.onrender.com/student/deleteStudent/${student._id}`, {
                 headers: { Authorization: token }
             })
                 .then(res => {
@@ -94,7 +94,7 @@ const Student_Profile = () => {
     const handleUpdate = (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
-        axios.put(`http://localhost:7777/student/updateStudent/${student._id}`, formData, {
+        axios.put(`https://book-zone-mern-app.onrender.com/student/updateStudent/${student._id}`, formData, {
             headers: { Authorization: token }
         })
             .then(res => {

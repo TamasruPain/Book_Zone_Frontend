@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { message } from 'antd'; 
+import { message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +16,7 @@ const Login_Student = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:7777/student/studentlogin', { Std_Id, Std_DOB });
+            const response = await axios.post('https://book-zone-mern-app.onrender.com/student/studentlogin', { Std_Id, Std_DOB });
             console.log('Login response:', response.data); // Log the response for debugging
             if (response.data.token) {
                 // Login successful
@@ -35,12 +35,12 @@ const Login_Student = () => {
             setLoading(false);
         }
     };
-    
+
 
     return (
-        <div className='d-flex justify-content-center align-items-center' style={{height:'600px'}} >
-        <div className='form-container card p-4' style={{ height: '500px', width:'400px' }}  >
-          <div className="" align={'right'}>
+        <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+            <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
+                <div className="" align={'right'}>
                     <Link to="/" className='btn btn-outline-success'><FontAwesomeIcon icon={faArrowLeft} /> Back</Link>
                 </div>
 
@@ -69,7 +69,7 @@ const Login_Student = () => {
                             type='text'
                             id='dob'
                             className='form-control'
-                            placeholder='Enter your Date of Birth (DDMMYYYY)'
+                            placeholder='Enter your Date of Birth'
                             value={Std_DOB}
                             onChange={(e) => setStd_DOB(e.target.value)}
                             required

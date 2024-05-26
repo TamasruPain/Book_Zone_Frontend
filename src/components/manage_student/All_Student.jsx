@@ -5,34 +5,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 const All_Students = () => {
-
   const navigate = useNavigate();
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:7777/student/students/")
+    axios.get("https://book-zone-mern-app.onrender.com/student/students/")
       .then(result => setStudents(result.data))
       .catch(err => console.log(err));
   }, []);
-
+  
   const handleDelete = (id) => {
-    // Show confirmation dialog
     const isConfirmed = window.confirm("Are you sure you want to delete this student?");
-
-    // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`http://localhost:7777/student/deleteStudent/${id}`)
+      axios.delete(`https://book-zone-mern-app.onrender.com/student/deleteStudent/${id}`)
         .then(res => {
           console.log(res);
-          // Refresh the page after deletion
           window.location.reload();
         })
         .catch(err => console.log(err));
     }
   };
 
-  // Filter students based on search term
   const filteredStudents = students.filter(student =>
     student.Std_Id.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -47,13 +41,13 @@ const All_Students = () => {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <div className='justify-content-center align-items-center'>
         <div className='rounded p-3'>
 
           <div>
             <button onClick={handleDashboard} className='btn btn-dark btn-sm'>
-              <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff", }} /> Dash Board
+              <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff" }} /> Dash Board
             </button>
           </div>
 
@@ -89,7 +83,7 @@ const All_Students = () => {
               </div>
             </div>
 
-            <div className="row row-cols-1 row-cols-md-4 g-4">
+            <div id="scrollspyTable" className="row row-cols-1 row-cols-md-4 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '400px', overflowY: 'scroll' }}>
               <table className="table table-hover table-bordered">
                 <thead className='table-success'>
                   <tr>
@@ -103,10 +97,9 @@ const All_Students = () => {
                     <th scope='col'>Admission Year</th>
                     <th scope='col'>Institute</th>
                     <th scope='col'>Actions</th>
-
                   </tr>
                 </thead>
-                <tbody>
+                <tbody >
                   {
                     filteredStudents.map((student, index) => {
                       return <tr key={student._id}>
@@ -122,11 +115,9 @@ const All_Students = () => {
                         <td>
                           <Link to={`/viewstudent/${student._id}`} className='btn btn-outline-primary mx-2 my-2'>View</Link>
                           <Link to={`/update_student/${student._id}`} className='btn btn-outline-info mx-2 my-2'>Update</Link>
-                          <button type='button' className='btn btn-outline-danger my-2 mx-2'
-                            onClick={(e) => handleDelete(student._id)}>Delete</button>
+                          <button type='button' className='btn btn-outline-danger my-2 mx-2' onClick={(e) => handleDelete(student._id)}>Delete</button>
                         </td>
                       </tr>
-
                     })
                   }
                 </tbody>

@@ -1,12 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams} from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesLeft} from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 const UpdateBooks_Card = () => {
-const navigate = useNavigate()
+  const navigate = useNavigate()
   const { id } = useParams()
   const [bname, setBname] = useState('')
   const [auther, setAuther] = useState('')
@@ -15,12 +15,12 @@ const navigate = useNavigate()
   const [department, setDepartment] = useState('')
   const [semester, setSemester] = useState('')
   const [blink, setBlink] = useState('')
-  
+
   useEffect(() => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:7777/role/checkRole', {
+        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -40,41 +40,41 @@ const navigate = useNavigate()
 
 
   useEffect(() => {
-    axios.get("http://localhost:7777/book/getbook/" + id)
-    .then(result => {
-      console.log(result)
-      const data = result.data;
-      setBname(data.bname || '');
-      setAuther(data.auther || '');
-      setPublishYear(data.publishYear || '');
-      setEdition(data.edition || '');
-      setDepartment(data.department || '');
-      setSemester(data.semester || '');
-      setBlink(data.blink || '');
-    })
-    .catch(err => console.log(err));
-}, [id]);
+    axios.get("https://book-zone-mern-app.onrender.com/book/getbook/" + id)
+      .then(result => {
+        console.log(result)
+        const data = result.data;
+        setBname(data.bname || '');
+        setAuther(data.auther || '');
+        setPublishYear(data.publishYear || '');
+        setEdition(data.edition || '');
+        setDepartment(data.department || '');
+        setSemester(data.semester || '');
+        setBlink(data.blink || '');
+      })
+      .catch(err => console.log(err));
+  }, [id]);
 
-const Update = (e) => {
-  e.preventDefault();
-  axios.put("http://localhost:7777/book/updatebookscard/"+id, { bname, auther, publishYear, edition, department, semester, blink })
-    .then(result => {
-      console.log(result)
-      navigate(-1);
-    })
-    .catch(err => console.log(err))
-}
+  const Update = (e) => {
+    e.preventDefault();
+    axios.put("https://book-zone-mern-app.onrender.com/book/updatebookscard/" + id, { bname, auther, publishYear, edition, department, semester, blink })
+      .then(result => {
+        console.log(result)
+        navigate(-1);
+      })
+      .catch(err => console.log(err))
+  }
 
   return (
     <div>
-      <div className=' d-flex justify-content-center align-items-center bg-secondary vh-100'>
-        <div className='bg-white p-4 rounded w-50'>
+        <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+            <div className='form-container card p-2' style={{ height: '600px', width: '600px' }}  >
           <div align='right'>
             <Link to='/all_books' className='btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
           </div>
           <h2 className='container d-flex justify-content-center align-items-center'>Update Books</h2>
 
-          <form className="row g-4 p-3 my-2" onSubmit={Update}>
+          <form className="row g-4 p-2 my-2" onSubmit={Update}>
 
             <div className="col-6">
               <label className="form-label" htmlFor="typeText">Book Name</label>
@@ -83,8 +83,8 @@ const Update = (e) => {
             </div>
 
             <div className="col-md-6">
-              <label htmlFor="inputAuther" className="form-label">Auther</label>
-              <input type="text" placeholder='' className="form-control" id="inputAuther"
+              <label htmlFor="inputAuthor" className="form-label">Author</label>
+              <input type="text" placeholder='' className="form-control" id="inputAuthor"
                 value={auther} onChange={(e) => setAuther(e.target.value)} />
             </div>
 
