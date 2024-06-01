@@ -75,7 +75,7 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/">|</Link>
                             </li>
-                            {(role === 'Student' || role === 'Owner Admin') && (
+                            {(role === 'Student' || role === 'Owner Admin' || role ==='User Admin'  ) && (
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/books">Library</Link>
                                 </li>
@@ -97,7 +97,7 @@ const Navbar = () => {
                             )}
                         </ul>
                         <ul className="navbar-nav mb-2 mb-lg-0 mx-2">
-                            {(role === 'Student' || role === 'Owner Admin') && (
+                            {(role === 'Student' || role === 'Owner Admin'  || role ==='User Admin') && (
                                 <li className="nav-item">
                                     <button onClick={handleLogout} className="btn btn-outline-Light mx-2" >
                                         <FontAwesomeIcon icon={faArrowRightFromBracket} /> Logout
