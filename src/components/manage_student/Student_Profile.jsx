@@ -3,8 +3,12 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faTrashCan, faPenToSquare, faAddressCard, faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
+import { message } from 'antd';
 
 const Student_Profile = () => {
+
+    const navigate = useNavigate();
+
     const [student, setStudent] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
@@ -46,22 +50,35 @@ const Student_Profile = () => {
         fetchData();
     }, []);
 
-    const navigate = useNavigate();
+    //logout---------------------------------------------------------------------------
+    useEffect(() => {
+        const logoutMessage = localStorage.getItem('logoutMessage');
+        if (logoutMessage) {
+            message.success('You have been logged out successfully!');
+            localStorage.removeItem('logoutMessage'); // Clear the flag
+        }
+    }, []);
 
     const handleLogout = () => {
-        axios.get('https://book-zone-mern-app.onrender.com/student/logout')
+        axios.get('https://book-zone-mern-app.onrender.com/logout')
             .then(res => {
-                if (res.data.json) {
+                if (res.status === 200) { // Assuming a status of 200 means success
                     localStorage.removeItem('token');
                     localStorage.removeItem('role');
-                    navigate('/');
-                    // Refresh the page after deletion
+                    localStorage.setItem('logoutMessage', 'true'); // Set the flag
+                    navigate('/'); // Navigate to the homepage
                     window.location.reload();
+                } else {
+                    // Handle unexpected response structure
+                    message.error('Logout failed. Please try again.');
+                    console.error('Unexpected response:', res);
                 }
             }).catch(err => {
-                console.log(err);
+                message.error('An error occurred during logout. Please try again.');
+                console.error('Logout error:', err);
             });
     };
+    //----------------------------------------------------------------------------------
 
     const handleDelete = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete your account?");

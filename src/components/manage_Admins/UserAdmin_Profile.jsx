@@ -60,21 +60,6 @@ const UserAdmin_Profile = () => {
     fetchData();
   }, []);
 
-  const handleLogout = () => {
-    axios.get('https://book-zone-mern-app.onrender.com/user/logout')
-      .then(res => {
-        if (res.data.json) {
-          localStorage.removeItem('token');
-          localStorage.removeItem('role');
-          navigate('/');
-          // Refresh the page after deletion
-          window.location.reload();
-        }
-      }).catch(err => {
-        console.log(err);
-      });
-  };
-
   const handleDelete = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account?");
     if (confirmDelete) {
@@ -116,6 +101,36 @@ const UserAdmin_Profile = () => {
         console.log(err);
       });
   };
+
+   //logout---------------------------------------------------------------------------
+   useEffect(() => {
+    const logoutMessage = localStorage.getItem('logoutMessage');
+    if (logoutMessage) {
+        message.success('You have been logged out successfully!');
+        localStorage.removeItem('logoutMessage'); // Clear the flag
+    }
+}, []);
+
+const handleLogout = () => {
+    axios.get('https://book-zone-mern-app.onrender.com/logout')
+        .then(res => {
+            if (res.status === 200) { // Assuming a status of 200 means success
+                localStorage.removeItem('token');
+                localStorage.removeItem('role');
+                localStorage.setItem('logoutMessage', 'true'); // Set the flag
+                navigate('/'); // Navigate to the homepage
+                window.location.reload();
+            } else {
+                // Handle unexpected response structure
+                message.error('Logout failed. Please try again.');
+                console.error('Unexpected response:', res);
+            }
+        }).catch(err => {
+            message.error('An error occurred during logout. Please try again.');
+            console.error('Logout error:', err);
+        });
+};
+//----------------------------------------------------------------------------------
 
   return (
     <>
