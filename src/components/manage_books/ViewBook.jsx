@@ -113,23 +113,23 @@ const ViewBook = () => {
               </tr>
             </tbody>
           </table>
-
         </div>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope='col'>Book Link:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                {book.blink}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
+        <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope='col'>Book Link:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  {book.blink}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div className='my-4'>
           <Link to={`/updatebookscard/${book._id}`} className='btn btn-outline-info'>Update</Link>
           <button type='button' className='btn btn-outline-danger mx-2'

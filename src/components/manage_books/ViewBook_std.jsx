@@ -103,7 +103,6 @@ const ViewBook = () => {
             </thead>
             <tbody>
               <tr>
-
                 <td>{book.edition}</td>
                 <td>{book.department}</td>
                 <td>{book.semester}</td>
@@ -111,6 +110,8 @@ const ViewBook = () => {
             </tbody>
           </table>
         </div>
+        
+        <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">
         <table className="table my-3">
           <thead>
             <tr>
@@ -126,7 +127,7 @@ const ViewBook = () => {
           </tbody>
         </table>
 
-
+</div>
         <div className='my-4'>
           <Link className='btn btn-outline-dark' onClick={openLink}>
             Open Link
