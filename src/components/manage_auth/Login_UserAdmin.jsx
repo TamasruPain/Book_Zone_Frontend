@@ -23,7 +23,8 @@ const Login_UserAdmin = () => {
       if (response.data.token) {
         //if Login successful
         localStorage.setItem('token', response.data.token); // Store token in local storage
-        localStorage.setItem('role', 'userAdmin'); // Store role in local storagemessage.success('Login successful!');
+        localStorage.setItem('role', 'userAdmin'); // 
+        message.success('Login successful!');
         navigate('/useradmindash');
       } else {
         // Login failed
