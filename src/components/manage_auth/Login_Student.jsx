@@ -16,7 +16,7 @@ const Login_Student = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post('https://book-zone-mern-app.onrender.com/student/studentlogin', { Std_Id, Std_DOB });
+            const response = await axios.post('https://book-zone-backend.onrender.com/student/studentlogin', { Std_Id, Std_DOB });
             console.log('Login response:', response.data); // Log the response for debugging
             if (response.data.token) {
                 // Login successful
@@ -30,7 +30,7 @@ const Login_Student = () => {
             }
         } catch (error) {
             console.error('Login error:', error); // Log any errors
-            message.error('An error occurred during login. Please try again.');
+            message.error('Login failed! Please check your credentials!');
         } finally {
             setLoading(false);
         }

@@ -15,7 +15,7 @@ const Books = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const Books = () => {
 
 
   useEffect(() => {
-    axios.get('https://book-zone-mern-app.onrender.com/book/allbooks')
+    axios.get('https://book-zone-backend.onrender.com/book/allbooks')
       .then(result => setBooks(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -132,7 +132,7 @@ const Books = () => {
               </div>
             </div>
           </div>
-          <div id="scrollspyTable" className="row row-cols-1 row-cols-md-3 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '400px', overflowY: 'scroll' }}>
+          <div id="scrollspyBookTable" className="row row-cols-1 row-cols-md-3 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '380px', overflowY: 'scroll' }}>
             {filteredBooks.map((book) => (
               <div className='col' key={book._id}>
                 <div className='card'>

@@ -15,7 +15,7 @@ const UserAdmins = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -34,7 +34,7 @@ const UserAdmins = () => {
 
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/user/userAdmins")
+    axios.get("https://book-zone-backend.onrender.com/user/userAdmins")
       .then(result => setUserAdmins(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -43,7 +43,7 @@ const UserAdmins = () => {
   const handleDelete = (id) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this student?");
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/user/deleteUserAdmin/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/user/deleteUserAdmin/${id}`)
         .then(res => {
           console.log(res);
           setUserAdmins(userAdmins.filter(admin => admin._id !== id));

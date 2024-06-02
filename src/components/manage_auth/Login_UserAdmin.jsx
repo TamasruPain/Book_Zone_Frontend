@@ -15,7 +15,7 @@ const Login_UserAdmin = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('https://book-zone-mern-app.onrender.com/user/useradminlogin', {
+      const response = await axios.post('https://book-zone-backend.onrender.com/user/useradminlogin', {
         userAdminEmail,
         userAdminPassword,
       });
@@ -32,7 +32,7 @@ const Login_UserAdmin = () => {
       }
     } catch (error) {
       console.error('Login error:', error); // Log any errors
-      message.error('An error occurred during login. Please try again.');
+      message.error('Login failed! Please check your credentials.');
     } finally {
       setLoading(false);
     }

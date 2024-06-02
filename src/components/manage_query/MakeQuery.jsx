@@ -12,7 +12,7 @@ const MakeQuery = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -40,7 +40,7 @@ const MakeQuery = () => {
     e.preventDefault();
     console.log('Submitting query:', query); // Log the query object
     try {
-      const response = await axios.post('https://book-zone-mern-app.onrender.com/query/makeQuery', query);
+      const response = await axios.post('https://book-zone-backend.onrender.com/query/makeQuery', query);
       console.log('Response:', response); // Log the response
       alert('Query submitted successfully');
       navigate(-1); // Navigating back after submission

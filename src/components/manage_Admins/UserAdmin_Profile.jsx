@@ -21,7 +21,7 @@ const UserAdmin_Profile = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -42,7 +42,7 @@ const UserAdmin_Profile = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/user/me', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/user/me', {
           headers: { Authorization: token }
         });
         setUserAdmin(response.data);
@@ -64,7 +64,7 @@ const UserAdmin_Profile = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account?");
     if (confirmDelete) {
       const token = localStorage.getItem('token');
-      axios.delete(`https://book-zone-mern-app.onrender.com/user/deleteUserAdmin/${userAdmin._id}`, {
+      axios.delete(`https://book-zone-backend.onrender.com/user/deleteUserAdmin/${userAdmin._id}`, {
         headers: { Authorization: token }
       })
         .then(res => {
@@ -91,7 +91,7 @@ const UserAdmin_Profile = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    axios.put(`https://book-zone-mern-app.onrender.com/user/updateUserAdmin/${userAdmin._id}`, formData, {
+    axios.put(`https://book-zone-backend.onrender.com/user/updateUserAdmin/${userAdmin._id}`, formData, {
       headers: { Authorization: token }
     })
       .then(res => {
@@ -102,35 +102,35 @@ const UserAdmin_Profile = () => {
       });
   };
 
-   //logout---------------------------------------------------------------------------
-   useEffect(() => {
+  //logout---------------------------------------------------------------------------
+  useEffect(() => {
     const logoutMessage = localStorage.getItem('logoutMessage');
     if (logoutMessage) {
-        message.success('You have been logged out successfully!');
-        localStorage.removeItem('logoutMessage'); // Clear the flag
+      message.success('You have been logged out successfully!');
+      localStorage.removeItem('logoutMessage'); // Clear the flag
     }
-}, []);
+  }, []);
 
-const handleLogout = () => {
-    axios.get('https://book-zone-mern-app.onrender.com/logout')
-        .then(res => {
-            if (res.status === 200) { // Assuming a status of 200 means success
-                localStorage.removeItem('token');
-                localStorage.removeItem('role');
-                localStorage.setItem('logoutMessage', 'true'); // Set the flag
-                navigate('/'); // Navigate to the homepage
-                window.location.reload();
-            } else {
-                // Handle unexpected response structure
-                message.error('Logout failed. Please try again.');
-                console.error('Unexpected response:', res);
-            }
-        }).catch(err => {
-            message.error('An error occurred during logout. Please try again.');
-            console.error('Logout error:', err);
-        });
-};
-//----------------------------------------------------------------------------------
+  const handleLogout = () => {
+    axios.get('https://book-zone-backend.onrender.com/logout')
+      .then(res => {
+        if (res.status === 200) { // Assuming a status of 200 means success
+          localStorage.removeItem('token');
+          localStorage.removeItem('role');
+          localStorage.setItem('logoutMessage', 'true'); // Set the flag
+          navigate('/'); // Navigate to the homepage
+          window.location.reload();
+        } else {
+          // Handle unexpected response structure
+          message.error('Logout failed. Please try again.');
+          console.error('Unexpected response:', res);
+        }
+      }).catch(err => {
+        message.error('An error occurred during logout. Please try again.');
+        console.error('Logout error:', err);
+      });
+  };
+  //----------------------------------------------------------------------------------
 
   return (
     <>

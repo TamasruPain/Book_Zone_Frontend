@@ -21,7 +21,7 @@ const OwnerAdmin_Profile = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/owner/me', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/owner/me', {
           headers: { Authorization: token }
         });
         setOwnerAdmin(response.data);
@@ -43,7 +43,7 @@ const OwnerAdmin_Profile = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -61,42 +61,42 @@ const OwnerAdmin_Profile = () => {
     checkRole();
   }, []);
 
- //logout---------------------------------------------------------------------------
- useEffect(() => {
-  const logoutMessage = localStorage.getItem('logoutMessage');
-  if (logoutMessage) {
+  //logout---------------------------------------------------------------------------
+  useEffect(() => {
+    const logoutMessage = localStorage.getItem('logoutMessage');
+    if (logoutMessage) {
       message.success('You have been logged out successfully!');
       localStorage.removeItem('logoutMessage'); // Clear the flag
-  }
-}, []);
+    }
+  }, []);
 
-const handleLogout = () => {
-  axios.get('https://book-zone-mern-app.onrender.com/logout')
+  const handleLogout = () => {
+    axios.get('https://book-zone-backend.onrender.com/logout')
       .then(res => {
-          if (res.status === 200) { // Assuming a status of 200 means success
-              localStorage.removeItem('token');
-              localStorage.removeItem('role');
-              localStorage.setItem('logoutMessage', 'true'); // Set the flag
-              navigate('/'); // Navigate to the homepage
-              window.location.reload();
-          } else {
-              // Handle unexpected response structure
-              message.error('Logout failed. Please try again.');
-              console.error('Unexpected response:', res);
-          }
+        if (res.status === 200) { // Assuming a status of 200 means success
+          localStorage.removeItem('token');
+          localStorage.removeItem('role');
+          localStorage.setItem('logoutMessage', 'true'); // Set the flag
+          navigate('/'); // Navigate to the homepage
+          window.location.reload();
+        } else {
+          // Handle unexpected response structure
+          message.error('Logout failed. Please try again.');
+          console.error('Unexpected response:', res);
+        }
       }).catch(err => {
-          message.error('An error occurred during logout. Please try again.');
-          console.error('Logout error:', err);
+        message.error('An error occurred during logout. Please try again.');
+        console.error('Logout error:', err);
       });
-};
-//----------------------------------------------------------------------------------
+  };
+  //----------------------------------------------------------------------------------
 
 
   const handleDelete = () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account?");
     if (confirmDelete) {
       const token = localStorage.getItem('token');
-      axios.delete(`https://book-zone-mern-app.onrender.com/owner/deleteOwnerAdmin/${ownerAdmin._id}`, {
+      axios.delete(`https://book-zone-backend.onrender.com/owner/deleteOwnerAdmin/${ownerAdmin._id}`, {
         headers: { Authorization: token }
       })
         .then(res => {
@@ -125,7 +125,7 @@ const handleLogout = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    axios.put(`https://book-zone-mern-app.onrender.com/owner/updateOwnerAdmin/${ownerAdmin._id}`, formData, {
+    axios.put(`https://book-zone-backend.onrender.com/owner/updateOwnerAdmin/${ownerAdmin._id}`, formData, {
       headers: { Authorization: token }
     })
       .then(res => {

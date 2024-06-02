@@ -10,7 +10,7 @@ const Books_MTech = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -34,7 +34,7 @@ const Books_MTech = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/book/mtech_books")
+    axios.get("https://book-zone-backend.onrender.com/book/mtech_books")
       .then(result => setMtechBooks(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -45,7 +45,7 @@ const Books_MTech = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/book/deletebook/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/book/deletebook/${id}`)
         .then(res => {
           console.log(res);
           // Use navigate to go back to the previous page

@@ -16,7 +16,7 @@ const OwnerAdmins = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const OwnerAdmins = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/owner/ownerAdmins")
+    axios.get("https://book-zone-backend.onrender.com/owner/ownerAdmins")
       .then(result => setOwnerAdmins(result.data))
       .catch(err => console.log(err));
   }, []);

@@ -11,7 +11,7 @@ const ViewStudent = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://book-zone-mern-app.onrender.com/student/student/${id}`)
+    axios.get(`https://book-zone-backend.onrender.com/student/student/${id}`)
       .then(response => {
         setStudent(response.data);
         setLoading(false);
@@ -28,7 +28,7 @@ const ViewStudent = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/student/deleteStudent/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/student/deleteStudent/${id}`)
         .then(res => {
           console.log(res);
           // Redirect to all students page or any other desired page

@@ -20,7 +20,7 @@ const UpdateBooks_Card = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -40,7 +40,7 @@ const UpdateBooks_Card = () => {
 
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/book/getbook/" + id)
+    axios.get("https://book-zone-backend.onrender.com/book/getbook/" + id)
       .then(result => {
         console.log(result)
         const data = result.data;
@@ -57,7 +57,7 @@ const UpdateBooks_Card = () => {
 
   const Update = (e) => {
     e.preventDefault();
-    axios.put("https://book-zone-mern-app.onrender.com/book/updatebookscard/" + id, { bname, auther, publishYear, edition, department, semester, blink })
+    axios.put("https://book-zone-backend.onrender.com/book/updatebookscard/" + id, { bname, auther, publishYear, edition, department, semester, blink })
       .then(result => {
         console.log(result)
         navigate(-1);
@@ -67,8 +67,8 @@ const UpdateBooks_Card = () => {
 
   return (
     <div>
-        <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
-            <div className='form-container card p-2' style={{ height: '600px', width: '600px' }}  >
+      <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+        <div className='form-container card p-2' style={{ height: '600px', width: '600px' }}  >
           <div align='right'>
             <Link to='/all_books' className='btn btn-outline-primary'><FontAwesomeIcon icon={faAnglesLeft} /></Link>
           </div>

@@ -20,7 +20,7 @@ const SignUp_UserAdmin = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('https://book-zone-mern-app.onrender.com/user/useradminsignup', {
+      const response = await axios.post('https://book-zone-backend.onrender.com/user/useradminsignup', {
         userAdminName,
         userAdminEmail,
         userAdminPassword,

@@ -20,7 +20,7 @@ const UpdateStudent = () => {
   });
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/student/getStudent/" + id)
+    axios.get("https://book-zone-backend.onrender.com/student/getStudent/" + id)
       .then(result => {
         console.log(result)
         const data = result.data;
@@ -47,7 +47,7 @@ const UpdateStudent = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    axios.put(`https://book-zone-mern-app.onrender.com/student/updateStudent/${id}`, studentData)
+    axios.put(`https://book-zone-backend.onrender.com/student/updateStudent/${id}`, studentData)
       .then(result => {
         console.log(result)
         navigate(-1);

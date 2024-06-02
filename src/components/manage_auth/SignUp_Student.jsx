@@ -27,7 +27,7 @@ const SignUp_Student = () => {
     setLoading(true);
     setErrorMessage('');
     try {
-      const response = await axios.post('https://book-zone-mern-app.onrender.com/student/studentsignup/', {
+      const response = await axios.post('https://book-zone-backend.onrender.com/student/studentsignup/', {
         Std_Name,
         Std_Id,
         Std_DOB,

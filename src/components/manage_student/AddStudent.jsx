@@ -25,7 +25,7 @@ const AddStudent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://book-zone-mern-app.onrender.com/student/addStudents", studentData);
+      await axios.post("https://book-zone-backend.onrender.com/student/addStudents", studentData);
       navigate(-1);
     } catch (error) {
       console.log(error);

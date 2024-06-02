@@ -20,7 +20,7 @@ const AddBooks_Cards = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -42,7 +42,7 @@ const AddBooks_Cards = () => {
 
   const Submit = (e) => {
     e.preventDefault();
-    axios.post("https://book-zone-mern-app.onrender.com/book/addbookscard", { bname, auther, publishYear, edition, department, semester, blink })
+    axios.post("https://book-zone-backend.onrender.com/book/addbookscard", { bname, auther, publishYear, edition, department, semester, blink })
       .then(result => {
         console.log(result)
         navigate('/all_books')

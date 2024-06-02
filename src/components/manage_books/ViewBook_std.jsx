@@ -14,7 +14,7 @@ const ViewBook = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -34,7 +34,7 @@ const ViewBook = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`https://book-zone-mern-app.onrender.com/book/book/${id}`)
+    axios.get(`https://book-zone-backend.onrender.com/book/book/${id}`)
       .then(response => {
         setBook(response.data);
         setLoading(false);
@@ -110,24 +110,24 @@ const ViewBook = () => {
             </tbody>
           </table>
         </div>
-        
-        <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">
-        <table className="table my-3">
-          <thead>
-            <tr>
-              <th scope='col'>Book Link:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                {book.blink}
-              </td>
-            </tr>
-          </tbody>
-        </table>
 
-</div>
+        <div className="row row-cols-1 row-cols-md-4 g-1 my-1 overflow-x-auto">
+          <table className="table my-3">
+            <thead>
+              <tr>
+                <th scope='col'>Book Link:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  {book.blink}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
         <div className='my-4'>
           <Link className='btn btn-outline-dark' onClick={openLink}>
             Open Link

@@ -11,7 +11,7 @@ const Books_MCA = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const Books_MCA = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/book/mca_books")
+    axios.get("https://book-zone-backend.onrender.com/book/mca_books")
       .then(result => setMCABooks(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -46,7 +46,7 @@ const Books_MCA = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/book/deletebook/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/book/deletebook/${id}`)
         .then(res => {
           console.log(res);
           // Use navigate to go back to the previous page

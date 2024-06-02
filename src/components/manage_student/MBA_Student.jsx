@@ -11,7 +11,7 @@ const MBA_Students = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/student/mba_students")
+    axios.get("https://book-zone-backend.onrender.com/student/mba_students")
       .then(result => setMBAStudents(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -22,7 +22,7 @@ const MBA_Students = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/student/deleteStudent/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/student/deleteStudent/${id}`)
         .then(res => {
           console.log(res);
           // Use navigate to go back to the previous page

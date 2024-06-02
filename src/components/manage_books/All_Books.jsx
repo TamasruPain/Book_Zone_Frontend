@@ -13,7 +13,7 @@ const All_Books = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -30,7 +30,7 @@ const All_Books = () => {
   }, [navigate]);
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/book/allbooks")
+    axios.get("https://book-zone-backend.onrender.com/book/allbooks")
       .then(result => setBooks(result.data))
       .catch(err => console.log(err));
   }, []);
@@ -39,7 +39,7 @@ const All_Books = () => {
     const isConfirmed = window.confirm("Are you sure you want to delete this book?");
 
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/book/deletebook/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/book/deletebook/${id}`)
         .then(res => {
           console.log(res);
           setBooks(prevBooks => prevBooks.filter(book => book._id !== id));

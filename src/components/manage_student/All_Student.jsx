@@ -10,15 +10,15 @@ const All_Students = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    axios.get("https://book-zone-mern-app.onrender.com/student/students/")
+    axios.get("https://book-zone-backend.onrender.com/student/students/")
       .then(result => setStudents(result.data))
       .catch(err => console.log(err));
   }, []);
-  
+
   const handleDelete = (id) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this student?");
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/student/deleteStudent/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/student/deleteStudent/${id}`)
         .then(res => {
           console.log(res);
           window.location.reload();
@@ -82,7 +82,7 @@ const All_Students = () => {
               </div>
             </div>
 
-            <div id="scrollspyTable" className="row row-cols-1 row-cols-md-4 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '380px', overflowY: 'scroll' }}>
+            <div id="scrollspyTable" className="row row-cols-1 row-cols-md-4 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '360px', overflowY: 'scroll' }}>
               <table className="table table-hover table-bordered">
                 <thead className='table-success'>
                   <tr>

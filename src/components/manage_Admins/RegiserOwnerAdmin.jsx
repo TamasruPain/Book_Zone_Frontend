@@ -17,7 +17,7 @@ const RegisterOwnerAdmin = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -44,7 +44,7 @@ const RegisterOwnerAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://book-zone-mern-app.onrender.com/owner/addowneradmin", ownerAdminData);
+      await axios.post("https://book-zone-backend.onrender.com/owner/addowneradmin", ownerAdminData);
       navigate(-1); // Navigate back to the previous page
     } catch (error) {
       console.log(error);
@@ -53,8 +53,8 @@ const RegisterOwnerAdmin = () => {
 
   return (
     <div>
-        <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
-            <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
+      <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
+        <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
 
           <div align='right'>
             <Link to='/owneradmins' className='btn btn-success'>Go Back</Link>

@@ -15,7 +15,7 @@ const ViewBook = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -35,7 +35,7 @@ const ViewBook = () => {
 
 
   useEffect(() => {
-    axios.get(`https://book-zone-mern-app.onrender.com/book/book/${id}`)
+    axios.get(`https://book-zone-backend.onrender.com/book/book/${id}`)
       .then(response => {
         setBook(response.data);
         setLoading(false);
@@ -51,7 +51,7 @@ const ViewBook = () => {
 
     // If user confirms, proceed with deletion
     if (isConfirmed) {
-      axios.delete(`https://book-zone-mern-app.onrender.com/book/deletebook/${id}`)
+      axios.delete(`https://book-zone-backend.onrender.com/book/deletebook/${id}`)
         .then(res => {
           console.log(res);
           // Reload the page to reflect the deletion

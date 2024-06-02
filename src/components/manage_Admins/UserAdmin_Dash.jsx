@@ -14,7 +14,7 @@ const UserAdmin_Dash = () => {
     const checkRole = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://book-zone-mern-app.onrender.com/role/checkRole', {
+        const response = await axios.get('https://book-zone-backend.onrender.com/role/checkRole', {
           headers: { Authorization: token }
         });
 
@@ -32,35 +32,35 @@ const UserAdmin_Dash = () => {
     checkRole();
   }, []);
 
- //logout---------------------------------------------------------------------------
- useEffect(() => {
-  const logoutMessage = localStorage.getItem('logoutMessage');
-  if (logoutMessage) {
+  //logout---------------------------------------------------------------------------
+  useEffect(() => {
+    const logoutMessage = localStorage.getItem('logoutMessage');
+    if (logoutMessage) {
       message.success('You have been logged out successfully!');
       localStorage.removeItem('logoutMessage'); // Clear the flag
-  }
-}, []);
+    }
+  }, []);
 
-const handleLogout = () => {
-  axios.get('https://book-zone-mern-app.onrender.com/logout')
+  const handleLogout = () => {
+    axios.get('https://book-zone-backend.onrender.com/logout')
       .then(res => {
-          if (res.status === 200) { // Assuming a status of 200 means success
-              localStorage.removeItem('token');
-              localStorage.removeItem('role');
-              localStorage.setItem('logoutMessage', 'true'); // Set the flag
-              navigate('/'); // Navigate to the homepage
-              window.location.reload();
-          } else {
-              // Handle unexpected response structure
-              message.error('Logout failed. Please try again.');
-              console.error('Unexpected response:', res);
-          }
+        if (res.status === 200) { // Assuming a status of 200 means success
+          localStorage.removeItem('token');
+          localStorage.removeItem('role');
+          localStorage.setItem('logoutMessage', 'true'); // Set the flag
+          navigate('/'); // Navigate to the homepage
+          window.location.reload();
+        } else {
+          // Handle unexpected response structure
+          message.error('Logout failed. Please try again.');
+          console.error('Unexpected response:', res);
+        }
       }).catch(err => {
-          message.error('An error occurred during logout. Please try again.');
-          console.error('Logout error:', err);
+        message.error('An error occurred during logout. Please try again.');
+        console.error('Logout error:', err);
       });
-};
-//----------------------------------------------------------------------------------
+  };
+  //----------------------------------------------------------------------------------
 
 
   return (
