@@ -51,7 +51,7 @@ const BBA_Students = () => {
 
   return (
     <div>
-      <div className='justify-content-center align-items-center'>
+      <div className='justify-content-center align-items-center' id="scrollspyBookTable" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '640px', overflowY: 'scroll' }}>
         <div className='rounded p-3'>
 
           <div>
@@ -92,7 +92,7 @@ const BBA_Students = () => {
               </div>
             </div>
 
-            <div id="scrollspyTable" className="row row-cols-1 row-cols-md-4 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '380px', overflowY: 'scroll' }}>
+            <div className="row row-cols-1 row-cols-md-4 g-4 my-1">
               <table className="table table-hover table-bordered">
                 <thead className='table-success'>
                   <tr>

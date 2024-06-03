@@ -78,7 +78,7 @@ const Books = () => {
 
   return (
 
-    <div className='justify-content-center align-items-center'>
+    <div className='justify-content-center align-items-center' id="scrollspyBookTable" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '640px', overflowY: 'scroll' }} >
       <div className='rounded p-3'>
         <div>
           <button onClick={handleDashboard} className='btn btn-dark btn-sm'> <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff", }} /> Dash Board</button>
@@ -132,7 +132,7 @@ const Books = () => {
               </div>
             </div>
           </div>
-          <div id="scrollspyBookTable" className="row row-cols-1 row-cols-md-3 g-4 my-1" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '380px', overflowY: 'scroll' }}>
+          <div className="row row-cols-1 row-cols-md-3 g-4 my-1">
             {filteredBooks.map((book) => (
               <div className='col' key={book._id}>
                 <div className='card'>

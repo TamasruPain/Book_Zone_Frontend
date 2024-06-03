@@ -67,7 +67,7 @@ const UserAdmins = () => {
 
   return (
     <div>
-      <div className='justify-content-center align-items-center'>
+      <div className='justify-content-center align-items-center' id="scrollspyBookTable" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" tabIndex="0" style={{ maxHeight: '640px', overflowY: 'scroll' }}>
         <div className='rounded p-3'>
 
           <div>
