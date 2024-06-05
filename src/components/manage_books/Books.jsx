@@ -20,7 +20,7 @@ const Books = () => {
         });
 
         // Check if the role is either "userAdmin" or "ownerAdmin"
-        if (response.data.role !== 'Student' && response.data.role !== 'Owner Admin') {
+        if (response.data.role !== 'Student' && response.data.role !== 'Owner Admin' && response.data.role !== 'User Admin') {
           alert('Login to gain Access!')
           navigate('/');
         }
