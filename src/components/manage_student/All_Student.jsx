@@ -88,11 +88,11 @@ const All_Students = () => {
                     <th scope="col">No.</th>
                     <th scope="col">Student Name</th>
                     <th scope="col">Student ID</th>
-                    <th scope='col'>Date Of Birth</th>
+                  
                     <th scope="col">Department</th>
                     <th scope='col'>Semester</th>
                     <th scope='col'>Email Address</th>
-                    <th scope='col'>Admission Year</th>
+                    
                     <th scope='col'>Institute</th>
                     <th scope='col'>Actions</th>
                   </tr>
@@ -104,11 +104,11 @@ const All_Students = () => {
                         <td>{index + 1}</td>
                         <td>{student.Std_Name}</td>
                         <td>{student.Std_Id}</td>
-                        <td>{student.Std_DOB}</td>
+                        
                         <td>{student.Std_Department}</td>
                         <td>{student.Std_Semester}</td>
                         <td>{student.Std_Email}</td>
-                        <td>{student.Std_AdmissionYear}</td>
+                        
                         <td>{student.Std_Institute}</td>
                         <td>
                           <Link to={`/viewstudent/${student._id}`} className='btn btn-outline-primary mx-2 my-2'>View</Link>

@@ -98,7 +98,7 @@ const SignUp_Student = () => {
           <div className='col-md-6'>
             <label className='form-label'>Date of Birth</label>
             <input
-              type='text'
+              type='date'
               className='form-control'
               value={Std_DOB}
               onChange={(e) => setStd_DOB(e.target.value)}

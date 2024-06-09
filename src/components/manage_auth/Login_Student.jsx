@@ -69,7 +69,7 @@ const Login_Student = () => {
                             type='text'
                             id='dob'
                             className='form-control'
-                            placeholder='Enter your Date of Birth'
+                            placeholder='Enter Your DOB [ YYYY-MM-DD ]'
                             value={Std_DOB}
                             onChange={(e) => setStd_DOB(e.target.value)}
                             required
