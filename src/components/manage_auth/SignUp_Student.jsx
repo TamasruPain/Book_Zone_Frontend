@@ -55,6 +55,12 @@ const SignUp_Student = () => {
     }
   };
 
+  const renderAdmissionYearOptions = () => {
+    const currentYear = new Date().getFullYear();
+    const years = Array.from({ length: 10 }, (_, i) => currentYear - i);
+    return years.map(year => <option key={year} value={year}>{year}</option>);
+  };
+
   return (
     <div className='d-flex justify-content-center align-items-center' style={{ height: '640px' }}>
       <div className='form-container card p-3 d-flex' style={{ height: '610px', width: '650px' }}>
@@ -107,13 +113,17 @@ const SignUp_Student = () => {
           </div>
           <div className='col-md-4'>
             <label className='form-label'>Gender</label>
-            <input
-              type='text'
+            <select
               className='form-control'
               value={Std_Gender}
               onChange={(e) => setStd_Gender(e.target.value)}
               required
-            />
+            >
+              <option value=''>Select Gender</option>
+              <option value='Male'>Male</option>
+              <option value='Female'>Female</option>
+              <option value='Other'>Other</option>
+            </select>
           </div>
           <div className='col-md-7'>
             <label className='form-label'>Institution</label>
@@ -127,13 +137,15 @@ const SignUp_Student = () => {
           </div>
           <div className='col-md-4'>
             <label className='form-label'>Year of Admission</label>
-            <input
-              type='text'
+            <select
               className='form-control'
               value={Std_AdmissionYear}
               onChange={(e) => setStd_AdmissionYear(e.target.value)}
               required
-            />
+            >
+              <option value=''>Select Year</option>
+              {renderAdmissionYearOptions()}
+            </select>
           </div>
           <div className='col-md-4'>
             <label className='form-label'>Department</label>
