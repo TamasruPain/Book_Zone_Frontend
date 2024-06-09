@@ -89,6 +89,7 @@ const OwnerAdmins = () => {
             </div>
 
             <div className="row row-cols-1 row-cols-md-4 g-4">
+
               <table className="table table-hover table-bordered">
                 <thead className='table-success'>
                   <tr>
@@ -109,6 +110,7 @@ const OwnerAdmins = () => {
                   ))}
                 </tbody>
               </table>
+              
             </div>
           </div>
         </div>

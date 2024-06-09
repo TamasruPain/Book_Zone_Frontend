@@ -54,14 +54,14 @@ const RegisterOwnerAdmin = () => {
   return (
     <div>
       <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
-        <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
+        <div className='form-container card p-4' style={{ height: '440px', width: '400px' }}  >
 
           <div align='right'>
             <Link to='/owneradmins' className='btn btn-success'>Go Back</Link>
           </div>
-          <h2 className='container d-flex justify-content-center align-items-center'>Owner Admin Details</h2>
+          <h2 className='container d-flex justify-content-center align-items-center my-3'>Owner Admin Details</h2>
 
-          <form className="row g-3 my-3" onSubmit={handleSubmit}>
+          <form className="row g-3 my-2" onSubmit={handleSubmit}>
 
             <div className="col-6">
               <label className="form-label" htmlFor="ownerAdminName"><b>Owner Admin Name</b></label>
@@ -88,7 +88,7 @@ const RegisterOwnerAdmin = () => {
             </div>
 
             <div className="col-12 justify-content-center align-items-center d-flex">
-              <button type="submit" className="btn btn-outline-primary w-50 my-3">Register Owner Admin</button>
+              <button type="submit" className="btn btn-outline-primary my-3">Register Owner Admin</button>
             </div>
           </form>
         </div>

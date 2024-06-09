@@ -54,14 +54,13 @@ const Register_UserAdmin = () => {
   return (
     <div>
       <div className='d-flex justify-content-center align-items-center' style={{ height: '600px' }} >
-        <div className='form-container card p-4' style={{ height: '500px', width: '400px' }}  >
+        <div className='form-container card p-4' style={{ height: '540px', width: '400px' }}  >
           <div align='right'>
             <Link to='/useradmins' className='btn btn-success'>Go Back</Link>
           </div>
-          <h2 className='container d-flex justify-content-center align-items-center'>User Admin Details</h2>
+          <h2 className='container d-flex justify-content-center align-items-center my-3'>User Admin Details</h2>
 
-          <form className="row g-3 my-3" onSubmit={handleSubmit}>
-
+          <form className="row g-3 my-2" onSubmit={handleSubmit}>
             <div className="col-6">
               <label className="form-label" htmlFor="userAdminName"><b>User Admin Name</b></label>
               <input className='form-control' type="text" id="userAdminName" name="userAdminName" value={useradminData.userAdminName} onChange={handleChange} required />
@@ -88,7 +87,7 @@ const Register_UserAdmin = () => {
             </div>
 
             <div className="col-12 justify-content-center align-items-center d-flex">
-              <button type="submit" className="btn btn-outline-primary w-50 my-3">Register User Admin</button>
+              <button type="submit" className="btn btn-outline-primary w-50 my-4">Register User Admin</button>
             </div>
           </form>
         </div>
